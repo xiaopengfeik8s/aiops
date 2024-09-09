@@ -29,7 +29,7 @@ rm hashicorp-key.gpg
 **AccessKey ID和AccessKey Secret**
 
 ---
-3. 开通虚拟机（aliyun）
+3. 开通虚拟机（aliyun） [参考](https://help.aliyun.com/document_detail/95829.html?spm=a2c4g.2588840.0.0.52f867040U8tfr)
 
 *3.1 指定provider的版本*
 
@@ -183,6 +183,23 @@ Plan: 5 to add, 0 to change, 0 to destroy.
 root@devops-shawn-workspace:~/geekbang/aiops/module_2/demo1# terraform apply -auto-approve
 ```
 ![ECS](img/demo1ecs.png)
+```shell
+root@devops-shawn-workspace:~/geekbang/aiops/module_2/demo1# ssh root@public_ip
+Welcome to Ubuntu 18.04.2 LTS (GNU/Linux 4.15.0-52-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+New release '20.04.6 LTS' available.
+Run 'do-release-upgrade' to upgrade to it.
+
+
+Welcome to Alibaba Cloud Elastic Compute Service !
+
+Last login: Mon Sep  9 13:51:28 2024 from x.x.x.x
+root@iZuf64m0c7fw396kcd3ckkZ:~# 
+```
 ---
 3.3.4 删除 
 > terraform.tfstate 会被清空了 而且 真实云资源也删除了
@@ -191,4 +208,43 @@ root@devops-shawn-workspace:~/geekbang/aiops/module_2/demo1# terraform destroy -
 
 ```
 ---
+
+
+### demo2
+>导入资源
+>使用场景
+>1.资源一开始并不是由 terraform 创建的
+>2.state 状态丢失需要重新拉取真实的状态
+
+terraform configuration  、 terraform state 、 reality resource 有差异时，最终会产生什么操作？
+
+![operation](img/demo2state.png)
+
+---
+1. 确保当前有一个ECS实例,拿到实际的实例ID
+```shell
+root@devops-shawn-workspace:~/geekbang/aiops/module_2# cp -ra demo1 demo2
+root@devops-shawn-workspace:~/geekbang/aiops/module_2# cd demo2/
+root@devops-shawn-workspace:~/geekbang/aiops/module_2/demo2# rm terraform.tfstate
+root@devops-shawn-workspace:~/geekbang/aiops/module_2/demo2# terraform plan
+root@devops-shawn-workspace:~/geekbang/aiops/module_2/demo2# terraform apply -auto-approve
+#拿到实际的实例ID:i-uf64m0c7fw396kcd3ckk
+root@devops-shawn-workspace:~/geekbang/aiops/module_2/demo2# terraform show 
+```
+---
+2. 备份demo2的state文件
+```shell
+
+#模拟state 丢失
+root@devops-shawn-workspace:~/geekbang/aiops/module_2/demo2# mv terraform.tfstate terraform.tfstate.backup
+```
+
+---
+3. 导入demo2的ECS实例来恢复state
+```shell
+terraform import alicloud_instance.instance i-uf64m0c7fw396kcd3ckk
+
+#对比新的state和备份的state的差异
+
+```
 
