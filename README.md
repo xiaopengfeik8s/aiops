@@ -1,18 +1,20 @@
 # aiops
 
 ## Terraform 架构
- Terraform Config   ->    Terraform Core    <->    Terraform Provider    ->    Cloud Resources
-                               ↑↓
-                          Terraform State
+![architecture](img/terraformarch.png)
+---
+**Tips:**
+- Terraform Provider大部分云厂商已经支持：[providers](https://registry.terraform.io/browse/providers)
+
+- Terraform Provider建议固定版本：~> version
 
 
- Terraform Provider大部分云厂商已经支持：https://registry.terraform.io/browse/providers
- Terraform Provider建议固定版本：~> version
+### demo1
+>创建/删除一台阿里云ECS（Terraform State File存储在本地）
 
+1. 安装 Terraform：[install](https://developer.hashicorp.com/terraform/downloads)
 
-### demo1：创建/删除一台阿里云ECS（Terraform State File存储在本地）
-• 安装 Terraform：https://developer.hashicorp.com/terraform/downloads
-```
+```shell
 #Ubuntu/Debian
 wget -O hashicorp-key.gpg https://apt.releases.hashicorp.com/gpg
 cat hashicorp-key.gpg |gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg
@@ -20,17 +22,19 @@ echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://
 apt update &&   apt install terraform
 rm hashicorp-key.gpg 
 ```
+---
+2. 认证配置（aliyun）
 
-• 认证配置（aliyun）
-```
-创建一个RAM用户，赋予了ECS的相关权限，得到了
-AccessKey ID和AccessKey Secret
-```
+创建一个RAM用户，赋予了ECS\VPC的相关权限，得到了
+**AccessKey ID和AccessKey Secret**
 
-• 开通虚拟机（aliyun）
-1.指定provider的版本
+---
+3. 开通虚拟机（aliyun）
+
+*3.1 指定provider的版本*
+
 ![How to use this provider](img/useprovider.png)
-```
+```shell
 terraform {
   required_providers {
     alicloud = {
@@ -40,7 +44,9 @@ terraform {
   }
 }
 ```
-2.配置阿里云账号信息
+---
+*3.2 配置阿里云账号信息*
+
 默认：
 ```
 provider "alicloud" {
@@ -52,10 +58,12 @@ provider "alicloud" {
 ```
 
 我使用这个：
-#Shared Credentials File
 
-将AK保存到本地$HOME/.aliyun/config.json：https://www.alibabacloud.com/help/zh/cli/configure-credentials#2a8d7a54cervl
-```
+**Shared Credentials File**
+
+将AK保存到本地$HOME/.aliyun/config.json [参考](https://www.alibabacloud.com/help/zh/cli/configure-credentials#2a8d7a54cervl)
+
+```shell
 {
 	"current": "TFAkProfile",
 	"profiles": [
@@ -78,7 +86,7 @@ provider "alicloud" {
 ```
 
 
-```
+```shell
 provider "alicloud" {
   region                  = "cn-shanghai"
   shared_credentials_file = "/root/.aliyun/config.json"
@@ -87,18 +95,20 @@ provider "alicloud" {
 ```
 
 或者可以使用：
-#Environment variables
+
+**Environment variables**
 ```
 export ALIBABA_CLOUD_ACCESS_KEY_ID="<Your-Access-Key-ID>"
 export ALIBABA_CLOUD_ACCESS_KEY_SECRET="<Your-Access-Key-Secret>"
 export ALIBABA_CLOUD_REGION="cn-shanghai"
 ```
+---
+
+*3.3 创建虚拟机*
 
 
-3.创建虚拟机
-• Init
-```
-#下载指定版本的provider
+3.3.1 下载指定版本的provider
+```shell
 root@devops-shawn-workspace:~/geekbang/aiops/module_2/demo1# terraform init
 
 Terraform has been successfully initialized!
@@ -120,16 +130,16 @@ module_2
 
 
 
-
+```
 # tips
-1.直接用本地的provider，不用下载远程的provider
+1. 直接用本地的provider，不用下载远程的provider
 terraform init --plugin-dir .terraform/providers
-2.如果增加、修改或更新了依赖，都需要重新执行 init
+2. 如果增加、修改或更新了依赖，都需要重新执行 init
 
-```
-• Plan
-```
-#生成执行计划 (不执行)，相当于dry-run
+---
+3.3.2 生成执行计划 
+> (不执行)，相当于dry-run
+```shell
 root@devops-shawn-workspace:~/geekbang/aiops/module_2/demo1# terraform plan
 data.alicloud_zones.default: Reading...
 data.alicloud_zones.default: Read complete after 2s [id=1880110974]
@@ -167,18 +177,18 @@ Plan: 5 to add, 0 to change, 0 to destroy.
             "available_resource_creation": "VSwitch",
             ......
 ```
-• Apply
-```
-#执行
+---
+3.3.3 执行
+```shell
 root@devops-shawn-workspace:~/geekbang/aiops/module_2/demo1# terraform apply -auto-approve
 ```
 ![ECS](img/demo1ecs.png)
-• Destroy
+---
+3.3.4 删除 
+> terraform.tfstate 会被清空了 而且 真实云资源也删除了
 ```
-#删除
 root@devops-shawn-workspace:~/geekbang/aiops/module_2/demo1# terraform destroy -auto-approve
 
-#此时会发现terraform.tfstate 已经被清空了
 ```
-
+---
 
