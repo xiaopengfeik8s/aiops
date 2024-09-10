@@ -212,8 +212,11 @@ root@devops-shawn-workspace:~/geekbang/aiops/module_2/demo1# terraform destroy -
 
 ### demo2
 >导入资源
+
 >使用场景
+
 >1.资源一开始并不是由 terraform 创建的
+
 >2.state 状态丢失需要重新拉取真实的状态
 
 terraform configuration  、 terraform state 、 reality resource 有差异时，最终会产生什么操作？
@@ -247,4 +250,113 @@ terraform import alicloud_instance.instance i-uf64m0c7fw396kcd3ckk
 #对比新的state和备份的state的差异
 
 ```
+
+### demo3
+>1. 使用 Local 存储，并定义远端的 oss 对象存储
+
+>2. 将状态文件迁移到 COS
+
+
+---
+1. 阿里云中赋予AK关于oss和ots(Tablestore)的必要权限  [参考oss backend](https://help.aliyun.com/document_detail/145541.html)
+
+---
+2. 创建oss和ots(Tablestore)，生成terraform backend oss的tf配置
+
+```shell
+root@devops-shawn-workspace:~/geekbang/aiops/module_2/demo3_oss_backend# terraform init
+root@devops-shawn-workspace:~/geekbang/aiops/module_2/demo3_oss_backend# terraform plan
+root@devops-shawn-workspace:~/geekbang/aiops/module_2/demo3_oss_backend# terraform apply -auto-approve
+
+#terraform show 可以查看oss和ots(Tablestore)已经创建
+root@devops-shawn-workspace:~/geekbang/aiops/module_2/demo3_oss_backend# terraform show
+
+#生成了terraform backend oss的tf配置
+terraform {
+  backend "oss" {
+    bucket              = "terraform-remote-backend-28929d53-ed97-2697-a788-0d0fd2ef2cc4"
+    prefix              = ""
+    key                 = "prod/terraform.tfstate"
+    acl                 = "private"
+    region              = "cn-shanghai"
+    encrypt             = "true"
+    tablestore_endpoint = "https://ots-i-87169.cn-shanghai.ots.aliyuncs.com"
+    tablestore_table    = "terraform_remote_backend_lock_table_28929d53_ed97_2697_a788_0d0fd2ef2cc4"
+  }
+}
+
+```
+---
+
+3. 在demo3中配置remote backend：oss
+
+```shell
+terraform {
+  backend "oss" {
+    profile                 = "TFAkProfile" 
+    # 指定profile= Credentials File 或者 
+    #access_key          = "xxxxxxxx"
+    #secret_key          = "xxxxxxxx"
+    bucket              = "terraform-remote-backend-28929d53-ed97-2697-a788-0d0fd2ef2cc4"
+    key                 = "prod/terraform.tfstate"
+    acl                 = "private"
+    region              = "cn-shanghai"
+    encrypt             = "true"
+    tablestore_endpoint = "https://ots-i-87169.cn-shanghai.ots.aliyuncs.com"
+    tablestore_table    = "terraform_remote_backend_lock_table_28929d53_ed97_2697_a788_0d0fd2ef2cc4"
+  }
+}
+```
+
+
+
+```shell
+root@devops-shawn-workspace:~/geekbang/aiops/module_2# cp -ra demo2 demo3
+root@devops-shawn-workspace:~/geekbang/aiops/module_2# cd demo3/
+root@devops-shawn-workspace:~/geekbang/aiops/module_2/demo3# rm terraform.tfstate
+
+
+root@devops-shawn-workspace:~/geekbang/aiops/module_2/demo3# terraform init
+root@devops-shawn-workspace:~/geekbang/aiops/module_2/demo3# terraform plan
+root@devops-shawn-workspace:~/geekbang/aiops/module_2/demo3# terraform apply -auto-approve
+```
+![remotebackend](img/demo3remotebackend.png)
+
+---
+Tips：
+关于 State 的其他命令
+• terraform refresh：从基础设施实际状态更新 state 状态
+• terraform state list：列出 state 记录的资源
+• terraform state rm：删除某些 state 状态
+• terraform state pull：从远端拉取状态到本地
+• terraform state push：更新本地的状态到远端
+
+
+
+
+---
+Terraform Layout（推荐）
+
+.
+├── README.md
+├── main.tf：主要的业务逻辑 定义基础设施可以拆开，cvm.tf、helm.tf、k3s.tf
+├── outputs.tf：定义输出内容 定义运行结束后所需要输出的内容 可设置是否为敏感数据，敏感数据将不输出 可以引用其他的 resource 的输出内容
+├── variables.tf：定义变量参数 用于在代码中引用 可定义类型、默认值、描述、验证函数、是否敏感数据（不在 plan 中显示）
+└── version.tf：定义依赖和版本
+
+
+---
+如何设置 variables？
+1. 通过在命令行配置：terraform apply -var="prefix=values"
+2. 指定配置文件：terraform apply -var-file="testing.tfvars"
+3. 环境变量：export TF_VAR_prefix=values
+4. 定义的默认值
+5. 交互式输入
+优先级从上（1最高）到下（5最低）对值进行覆盖。
+---
+### demo4
+• 开通 VM
+• 安装 K3s
+• 安装 Argo CD
+• 查看依赖关系：terraform graph | dot -Tsvg > graph.svg
 

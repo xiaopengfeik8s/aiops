@@ -1,0 +1,12 @@
+    terraform {
+      backend "oss" {
+        bucket              = "terraform-remote-backend-28929d53-ed97-2697-a788-0d0fd2ef2cc4"
+        prefix              = ""
+        key                 = "prod/terraform.tfstate"
+        acl                 = "private"
+        region              = "cn-shanghai"
+        encrypt             = "true"
+        tablestore_endpoint = "https://ots-i-87169.cn-shanghai.ots.aliyuncs.com"
+        tablestore_table    = "terraform_remote_backend_lock_table_28929d53_ed97_2697_a788_0d0fd2ef2cc4"
+      }
+    }
