@@ -15,5 +15,5 @@ module "k3s" {
 
 module "argocd" {
   source     = "../modules/argocd"
-  kube_config  = var.kube_config
+  kube_config  = module.k3s.kube_config
 }
