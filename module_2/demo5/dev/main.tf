@@ -9,6 +9,7 @@ module "k3s" {
   source     = "../modules/k3s"
   public_ip  = module.ecs.public_ip
   private_ip = module.ecs.private_ip
+  private_key = var.private_key
 }
 
 
