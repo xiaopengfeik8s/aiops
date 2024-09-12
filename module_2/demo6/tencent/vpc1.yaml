@@ -4,5 +4,5 @@ metadata:
   name: example-cvm-vpc1
 spec:
   forProvider:
-    cidrBlock: "10.2.0.0/16"
+    cidrBlock: "10.9.0.0/16"
     name: "test-crossplane-cvm-vpc1"
