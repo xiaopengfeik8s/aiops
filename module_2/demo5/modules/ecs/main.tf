@@ -94,7 +94,7 @@ resource "random_integer" "default" {
 // Import an existing public key to build a alicloud key pair
 resource "alicloud_ecs_key_pair" "example" {
   key_pair_name = "tf-example-shawn-${random_integer.default.result}"
-  public_key    = var.public_key
+  public_key    = file(var.public_key_path)
 }
 
 resource "alicloud_ecs_key_pair_attachment" "example" {

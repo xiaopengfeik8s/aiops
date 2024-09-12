@@ -1,1 +1,0 @@
-variable "kube_config" {}

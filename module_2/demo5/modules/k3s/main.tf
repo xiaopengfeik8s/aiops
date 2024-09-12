@@ -19,7 +19,7 @@ module "k3s" {
         timeout  = "60s"
         type     = "ssh"
         host     = var.public_ip
-        private_key = var.private_key
+        private_key = file(var.private_key_path)
         user     = "root"
       }
     }
@@ -27,7 +27,3 @@ module "k3s" {
 }
 
 
-resource "local_sensitive_file" "kubeconfig" {
-  content  = module.k3s.kube_config
-  filename = "${path.root}/config.yaml"
-}

@@ -1,5 +1,7 @@
 output "kube_config" {
-  description = "kubeconfig"
-  value       = "${path.root}/config.yaml"
+  value = module.k3s.kube_config
 }
 
+output "kubernetes" {
+  value = module.k3s.kubernetes
+}
