@@ -377,7 +377,7 @@ terraform apply -auto-approve
 export KUBECONFIG="$(pwd)/config.yaml"
 2.2 获取密码
 kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
-#vmAC0Im-fbU7vFp2
+#Ur6M0SdKwuScstWx
 2.3 端口转发
 kubectl port-forward svc/argocd-server -n argocd 8080:80 --address 0.0.0.0 
 2.4 访问 Dashboard
@@ -507,4 +507,19 @@ spec:
 EOF
 ```
 
+
+---
+4. 使用argocd 部署
+```shell
+project: default
+source:
+  repoURL: https://github.com/xiaopengfeik8s/aiops.git
+  path: module_2/demo6/tencent
+  targetRevision: HEAD
+destination:
+  server: https://kubernetes.default.svc
+syncPolicy:
+  automated:
+    prune: true
+```
 
