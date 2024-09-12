@@ -360,3 +360,43 @@ Terraform Layout（推荐）
 • 安装 Argo CD
 • 查看依赖关系：terraform graph | dot -Tsvg > graph.svg
 
+
+
+  1. 安装
+export TF_VAR_secret_id=xxx
+export TF_VAR_secret_key=xxx
+export TF_VAR_private_key=`cat /root/.ssh/id_rsa`
+export TF_VAR_public_key=`cat /root/.ssh/id_rsa.pub`
+terraform init
+terraform plan
+terraform apply -auto-approve
+#查看依赖关系：terraform graph | dot -Tsvg > graph.svg
+
+  1. 访问 Argo CD
+2.1 设置 KUBECONFIG 环境变量
+export KUBECONFIG="$(pwd)/config.yaml"
+2.2 获取密码
+kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
+#vmAC0Im-fbU7vFp2
+2.3 端口转发
+kubectl port-forward svc/argocd-server -n argocd 8080:80 --address 0.0.0.0 
+2.4 访问 Dashboard
+打开浏览器访问 http://127.0.0.1:8080，用户名 admin/密码为上面获取的密码。
+
+  1. 销毁
+# 先删除 k3s state 和 argocd state，否则会出错
+ terraform state list
+ terraform state rm 'helm_release.argo_cd'
+ terraform state rm 'module.k3s'
+# 再执行删除
+ terraform destroy -auto-approve
+
+demo5
+将demo4的代码拆分到 module 中
+Module + 目录隔离
+并且安装了crossplane
+
+操作步骤参考demo4
+
+demo6
+
