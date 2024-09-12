@@ -73,7 +73,7 @@ resource "alicloud_instance" "instance" {
   image_id                   = "ubuntu_18_04_64_20G_alibase_20190624.vhd"
   instance_name              = var.name
   vswitch_id                 = alicloud_vswitch.vswitch.id
-  internet_max_bandwidth_out = 10
+  internet_max_bandwidth_out = 99
   data_disks {
     name        = "data-disk"
     size        = 20

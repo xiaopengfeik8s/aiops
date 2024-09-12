@@ -398,5 +398,113 @@ Module + 目录隔离
 
 操作步骤参考demo4
 
-demo6
+### demo6
+参考
+https://docs.crossplane.io/latest/getting-started/provider-aws/
+
+配置Crossplane
+
+
+
+1. 参考demo5安装Crossplane 
+
+验证Crossplane components 
+```shell
+root@devops-shawn-workspace:~/geekbang/aiops/module_2/demo5/dev# kubectl get pods -n crossplane-system
+NAME                                      READY   STATUS    RESTARTS   AGE
+crossplane-869cdfbcdd-4gdlq               1/1     Running   0          39m
+crossplane-rbac-manager-f9458595b-zmwqx   1/1     Running   0          39m
+```
+验证new Kubernetes API end-points for Crossplane
+```shell
+root@devops-shawn-workspace:~/geekbang/aiops/module_2/demo5/dev# kubectl api-resources | grep crossplane
+compositeresourcedefinitions      xrd,xrds           apiextensions.crossplane.io/v1         false        CompositeResourceDefinition
+compositionrevisions              comprev            apiextensions.crossplane.io/v1         false        CompositionRevision
+compositions                      comp               apiextensions.crossplane.io/v1         false        Composition
+environmentconfigs                envcfg             apiextensions.crossplane.io/v1alpha1   false        EnvironmentConfig
+usages                                               apiextensions.crossplane.io/v1alpha1   false        Usage
+configurationrevisions                               pkg.crossplane.io/v1                   false        ConfigurationRevision
+configurations                                       pkg.crossplane.io/v1                   false        Configuration
+controllerconfigs                                    pkg.crossplane.io/v1alpha1             false        ControllerConfig
+deploymentruntimeconfigs                             pkg.crossplane.io/v1beta1              false        DeploymentRuntimeConfig
+functionrevisions                                    pkg.crossplane.io/v1                   false        FunctionRevision
+functions                                            pkg.crossplane.io/v1                   false        Function
+locks                                                pkg.crossplane.io/v1beta1              false        Lock
+providerrevisions                                    pkg.crossplane.io/v1                   false        ProviderRevision
+providers                                            pkg.crossplane.io/v1                   false        Provider
+storeconfigs                                         secrets.crossplane.io/v1alpha1         false        StoreConfig
+root@devops-shawn-workspace:~/geekbang/aiops/module_2/demo5/dev# 
+```
+
+2. 安装 云厂商对应的 provider 参考https://marketplace.upbound.io/providers/crossplane-contrib/provider-alibaba/v0.6.0
+>The Crossplane Provider installs the Kubernetes Custom Resource Definitions (CRDs) representing AWS S3 services. These CRDs allow you to create AWS resources directly inside Kubernetes.
+```shell  
+cat <<EOF | kubectl apply -f -
+apiVersion: pkg.crossplane.io/v1
+kind: Provider
+metadata:
+  name: provider-tencentcloud
+spec:
+  package: xpkg.upbound.io/crossplane-contrib/provider-tencentcloud:v0.8.3
+EOF
+```
+You can view the new CRDs with ```kubectl get crds```
+
+3. Create a Kubernetes secret for alibabacloud
+```shell
+
+
+
+cat>tencent-credentials.json <<EOF 
+{
+  "secret_id": "",
+  "secret_key": "",
+  "region": "ap-hongkong"
+}
+EOF
+
+kubectl create secret generic tencent-account-creds -n crossplane-system --from-file=credentials=tencent-credentials.json
+rm -f tencent-credentials.json
+kubectl describe secret tencent-account-creds -n crossplane-system
+
+
+#kubectl delete secret tencent-account-creds -n crossplane-system
+
+
+
+```
+
+Create a ProviderConfig 
+```shell
+cat <<EOF | kubectl apply -f -
+apiVersion: tencentcloud.crossplane.io/v1alpha1
+kind: ProviderConfig
+metadata:
+  name: default
+spec:
+  credentials:
+    secretRef:
+      key: credentials
+      name: tencent-account-creds
+      namespace: crossplane-system
+    source: Secret
+EOF
+```
+
+Create a managed resource 
+A managed resource is anything Crossplane creates and manages outside of the Kubernetes cluster.
+
+```shell
+cat <<EOF | kubectl apply -f -
+apiVersion: vpc.tencentcloud.crossplane.io/v1alpha1
+kind: VPC
+metadata:
+  name: example-cvm-vpc1
+spec:
+  forProvider:
+    cidrBlock: "10.2.0.0/16"
+    name: "test-crossplane-cvm-vpc"
+EOF
+```
+
 
