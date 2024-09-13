@@ -1,5 +1,5 @@
 # 使用 YAML to Infra 模式创建云 Redis 数据库。
-> 1.我选择使用阿里云来安装crossplane
+> 1.我选择使用terraform在阿里云安装crossplane
 > 2.再YAML to Infra 去腾讯云中创建一个云Redis数据库
 
 
@@ -9,7 +9,8 @@
 - 使用helm安装Crossplane
 
 ```shell
-
+export TF_VAR_secret_id=xxx
+export TF_VAR_secret_key=xxx
 root@devops-shawn-workspace:~/geekbang/aiops/tasks/week1/task2/install/dev# terraform init
 root@devops-shawn-workspace:~/geekbang/aiops/tasks/week1/task2/install/dev# terraform plan
 root@devops-shawn-workspace:~/geekbang/aiops/tasks/week1/task2/install/dev# terraform apply -auto-approve
@@ -120,6 +121,6 @@ vpc.vpc.tencentcloud.crossplane.io "vpc" deleted
 ```shell
 root@devops-shawn-workspace:~/geekbang/aiops/tasks/week1/task2/install/dev# terraform state list 
 root@devops-shawn-workspace:~/geekbang/aiops/tasks/week1/task2/install/dev# terraform state rm module.k3s module.crossplane module.argocd
-
+root@devops-shawn-workspace:~/geekbang/aiops/tasks/week1/task2/install/dev# terraform destroy -auto-approve
 ```
 
