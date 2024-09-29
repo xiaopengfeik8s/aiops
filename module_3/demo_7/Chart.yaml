@@ -1,0 +1,25 @@
+apiVersion: v2
+name: vote
+description: Kubernetes vote application
+type: application
+version: 0.1.0
+appVersion: "0.1.0"
+
+dependencies:
+  - name: redis
+    version: "17.16.0"
+    repository: "oci://registry-1.docker.io/bitnamicharts"
+    condition: redis.enabled
+    tags:
+      - middleware
+  - name: postgresql-ha
+    version: "11.9.0"
+    repository: "oci://registry-1.docker.io/bitnamicharts"
+    condition: postgresql-ha.enabled
+    tags:
+      - middleware
+  #- name: abc
+  #  version: "11.9.0"
+  #  repository: "file://../charts/abccharts/"
+  #  condition: abc.enabled
+

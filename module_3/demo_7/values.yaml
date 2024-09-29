@@ -1,0 +1,29 @@
+worker:
+  image: dockersamples/examplevotingapp_worker
+  tag: latest
+
+vote:
+  image: dockersamples/examplevotingapp_vote
+  tag: latest
+
+result:
+  image: dockersamples/examplevotingapp_result
+  tag: latest
+
+# 覆写子 chart 的默认值
+redis:
+  enabled: true
+  fullnameOverride: redis
+  auth:
+    enabled: false
+
+postgresql-ha:
+  enabled: true
+  fullnameOverride: db
+  global:
+    postgresql:
+      username: postgres
+      password: postgres
+      database: postgres
+      repmgrUsername: postgres
+      repmgrPassword: postgres

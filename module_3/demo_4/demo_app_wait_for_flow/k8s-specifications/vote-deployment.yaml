@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: vote
+  name: vote
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: vote
+  template:
+    metadata:
+      labels:
+        app: vote
+    spec:
+      initContainers:
+        - name: wait-for-worker
+          image: ghcr.io/groundnuty/k8s-wait-for:v2.0
+          args: ["pod", "-lapp=worker"]
+      containers:
+        - image: dockersamples/examplevotingapp_vote
+          name: vote
+          ports:
+            - containerPort: 80
+              name: vote

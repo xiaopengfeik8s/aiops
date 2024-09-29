@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: result
+  name: result
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: result
+  template:
+    metadata:
+      labels:
+        app: result
+    spec:
+      initContainers:
+        - name: wait-for-db
+          image: ghcr.io/groundnuty/k8s-wait-for:v2.0
+          args: ["pod", "-lapp=db"]
+      containers:
+        - image: lyzhang1999/result:remove-retry
+          name: result
+          ports:
+            - containerPort: 80
+              name: result
