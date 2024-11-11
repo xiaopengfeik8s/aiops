@@ -1,0 +1,800 @@
+2024-08-11 11:02:47.902+0000 INFO  [o.n.g.f.m.GlobalModule] Logging config in use: File '/var/lib/neo4j/conf/server-logs.xml'
+2024-08-11 11:02:48.030+0000 WARN  [o.n.k.i.JvmChecker] The max heap memory has not been configured. It is recommended that it is always explicitly configured, to ensure the system has a balanced configuration. Until then, a JVM computed heuristic of 2057306112 bytes is used instead. If you are running neo4j server, you need to configure server.memory.heap.max_size in neo4j.conf. If you are running neo4j embedded, you have to launch the JVM with -Xmx set to a value. You can run neo4j-admin server memory-recommendation for memory configuration suggestions.
+2024-08-11 11:02:48.030+0000 WARN  [o.n.k.i.JvmChecker] The initial heap memory has not been configured. It is recommended that it is always explicitly configured, to ensure the system has a balanced configuration. Until then, a JVM computed heuristic of 130023424 bytes is used instead. If you are running neo4j server, you need to configure server.memory.heap.initial_size in neo4j.conf. If you are running neo4j embedded, you have to launch the JVM with -Xms set to a value. You can run neo4j-admin server memory-recommendation for memory configuration suggestions.
+2024-08-11 11:02:48.169+0000 INFO  [o.n.i.d.DiagnosticsManager] 
+                                                                ********************************************************************************
+                                                                                             [ System diagnostics ]                             
+                                                                ********************************************************************************
+                                                                --------------------------------------------------------------------------------
+                                                                                         [ System memory information ]                          
+                                                                --------------------------------------------------------------------------------
+                                                                Total Physical memory: 7.657GiB
+                                                                Free Physical memory: 5.584GiB
+                                                                Committed virtual memory: 5.559GiB
+                                                                Total swap space: 1024MiB
+                                                                Free swap space: 1024MiB
+                                                                
+                                                                --------------------------------------------------------------------------------
+                                                                                           [ JVM memory information ]                           
+                                                                --------------------------------------------------------------------------------
+                                                                Free  memory: 74.83MiB
+                                                                Total memory: 107.0MiB
+                                                                Max   memory: 1.916GiB
+                                                                Garbage Collector: G1 Young Generation: [G1 Eden Space, G1 Survivor Space, G1 Old Gen]
+                                                                Garbage Collector: G1 Old Generation: [G1 Eden Space, G1 Survivor Space, G1 Old Gen]
+                                                                Memory Pool: CodeHeap 'non-nmethods' (Non-heap memory): committed=2.438MiB, used=1.212MiB, max=5.570MiB, threshold=0B
+                                                                Memory Pool: Metaspace (Non-heap memory): committed=21.75MiB, used=21.44MiB, max=-1B, threshold=0B
+                                                                Memory Pool: CodeHeap 'profiled nmethods' (Non-heap memory): committed=5.688MiB, used=5.631MiB, max=117.2MiB, threshold=0B
+                                                                Memory Pool: Compressed Class Space (Non-heap memory): committed=2.438MiB, used=2.308MiB, max=1.000GiB, threshold=0B
+                                                                Memory Pool: G1 Eden Space (Heap memory): committed=75.00MiB, used=2.000MiB, max=-1B, threshold=?
+                                                                Memory Pool: G1 Old Gen (Heap memory): committed=31.00MiB, used=28.17MiB, max=1.916GiB, threshold=0B
+                                                                Memory Pool: G1 Survivor Space (Heap memory): committed=1.000MiB, used=1.000MiB, max=-1B, threshold=?
+                                                                Memory Pool: CodeHeap 'non-profiled nmethods' (Non-heap memory): committed=2.438MiB, used=1.672MiB, max=117.2MiB, threshold=0B
+                                                                
+                                                                --------------------------------------------------------------------------------
+                                                                                        [ Operating system information ]                        
+                                                                --------------------------------------------------------------------------------
+                                                                Operating System: Linux; version: 6.6.32-linuxkit; arch: aarch64; cpus: 8
+                                                                Max number of file descriptors: 1048576
+                                                                Number of open file descriptors: 243
+                                                                Process id: 7
+                                                                Byte order: LITTLE_ENDIAN
+                                                                Local timezone: Etc/UTC
+                                                                Memory page size: 4096
+                                                                Unaligned memory access allowed: true
+                                                                
+                                                                --------------------------------------------------------------------------------
+                                                                                              [ JVM information ]                               
+                                                                --------------------------------------------------------------------------------
+                                                                VM Name: OpenJDK 64-Bit Server VM
+                                                                VM Vendor: Eclipse Adoptium
+                                                                VM Version: 17.0.11+9
+                                                                JIT compiler: HotSpot 64-Bit Tiered Compilers
+                                                                VM Arguments: [-XX:+UseG1GC, -XX:-OmitStackTraceInFastThrow, -XX:+AlwaysPreTouch, -XX:+UnlockExperimentalVMOptions, -XX:+TrustFinalNonStaticFields, -XX:+DisableExplicitGC, -Djdk.nio.maxCachedBufferSize=1024, -Dio.netty.tryReflectionSetAccessible=true, -Djdk.tls.ephemeralDHKeySize=2048, -Djdk.tls.rejectClientInitiatedRenegotiation=true, -XX:FlightRecorderOptions=stackdepth=256, -XX:+UnlockDiagnosticVMOptions, -XX:+DebugNonSafepoints, --add-opens=java.base/java.nio=ALL-UNNAMED, --add-opens=java.base/java.io=ALL-UNNAMED, --add-opens=java.base/sun.nio.ch=ALL-UNNAMED, -Dlog4j2.disable.jmx=true, -Dfile.encoding=UTF-8]
+                                                                
+                                                                --------------------------------------------------------------------------------
+                                                                                               [ Java classpath ]                               
+                                                                --------------------------------------------------------------------------------
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-slf4j-provider-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-graph-algo-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/jackson-jaxrs-json-provider-2.17.0.jar
+                                                                 [classpath] /var/lib/neo4j/lib/netty-handler-4.1.110.Final.jar
+                                                                 [classpath] /var/lib/neo4j/lib/grpc-context-1.63.0.jar
+                                                                 [classpath] /var/lib/neo4j/lib/jetty-alpn-server-10.0.20.jar
+                                                                 [classpath] /var/lib/neo4j/lib/jaxb-runtime-2.3.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/grpc-api-1.63.0.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-cypher-javacc-parser-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/netty-buffer-4.1.110.Final.jar
+                                                                 [classpath] /var/lib/neo4j/lib/jersey-container-servlet-2.34.jar
+                                                                 [classpath] /var/lib/neo4j/lib/netty-handler-proxy-4.1.110.Final.jar
+                                                                 [classpath] /var/lib/neo4j/lib/caffeine-3.1.8.jar
+                                                                 [classpath] /var/lib/neo4j/lib/magnolia_2.13-1.1.8.jar
+                                                                 [classpath] /var/lib/neo4j/lib/scala-library-2.13.11.jar
+                                                                 [classpath] /var/lib/neo4j/lib/lucene-core-9.10.0.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-browser-5.21.0.jar
+                                                                 [classpath] /var/lib/neo4j/lib/jackson-datatype-jsr310-2.17.0.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-wal-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/lucene-analysis-common-9.10.0.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-cypher-cache-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/jetty-io-10.0.20.jar
+                                                                 [classpath] /var/lib/neo4j/lib/jetty-servlet-10.0.20.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-graphdb-api-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/netty-tcnative-2.0.65.Final-linux-aarch_64.jar
+                                                                 [classpath] /var/lib/neo4j/conf/*
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-query-router-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/WMI4Java-1.6.3.jar
+                                                                 [classpath] /var/lib/neo4j/lib/jakarta.xml.bind-api-2.3.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/jProcesses-1.6.5.jar
+                                                                 [classpath] /var/lib/neo4j/lib/jackson-annotations-2.17.0.jar
+                                                                 [classpath] /var/lib/neo4j/lib/hk2-locator-2.6.1.jar
+                                                                 [classpath] /var/lib/neo4j/lib/grpc-core-1.63.0.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-logging-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/eclipse-collections-api-11.1.0.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-bootcheck-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/cypher-v5-ast-factory-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/jersey-container-servlet-core-2.34.jar
+                                                                 [classpath] /var/lib/neo4j/lib/jansi-2.4.0.jar
+                                                                 [classpath] /var/lib/neo4j/lib/jetty-xml-10.0.20.jar
+                                                                 [classpath] /var/lib/neo4j/lib/netty-transport-native-epoll-4.1.110.Final-linux-aarch_64.jar
+                                                                 [classpath] /var/lib/neo4j/lib/jline-terminal-3.21.0.jar
+                                                                 [classpath] /var/lib/neo4j/lib/grpc-protobuf-lite-1.62.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-cypher-logical-plans-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/netty-tcnative-2.0.65.Final-linux-aarch_64-fedora.jar
+                                                                 [classpath] /var/lib/neo4j/lib/proto-google-common-protos-2.38.0.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-cypher-ast-factory-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-cloud-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/netty-transport-classes-kqueue-4.1.110.Final.jar
+                                                                 [classpath] /var/lib/neo4j/lib/jakarta.ws.rs-api-2.1.6.jar
+                                                                 [classpath] /var/lib/neo4j/lib/kiama_2.13-2.5.1.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-csv-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/arrow-format-16.0.0.jar
+                                                                 [classpath] /var/lib/neo4j/lib/grpc-stub-1.63.0.jar
+                                                                 [classpath] /var/lib/neo4j/lib/commons-compress-1.26.1.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-cypher-rendering-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/istack-commons-runtime-3.0.8.jar
+                                                                 [classpath] /var/lib/neo4j/lib/jetty-servlet-api-4.0.6.jar
+                                                                 [classpath] /var/lib/neo4j/lib/eclipse-collections-11.1.0.jar
+                                                                 [classpath] /var/lib/neo4j/lib/shiro-cache-2.0.0.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-udc-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/commons-text-1.12.0.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-cypher-planner-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/byte-buddy-1.14.14.jar
+                                                                 [classpath] /var/lib/neo4j/lib/netty-codec-socks-4.1.110.Final.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-resource-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/gson-2.10.1.jar
+                                                                 [classpath] /var/lib/neo4j/lib/jakarta.validation-api-2.0.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/shiro-crypto-hash-2.0.0.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-security-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/shiro-hashes-argon2-2.0.0.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-cypher-runtime-util-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/antlr4-runtime-4.13.1.jar
+                                                                 [classpath] /var/lib/neo4j/lib/hk2-utils-2.6.1.jar
+                                                                 [classpath] /var/lib/neo4j/lib/http2-common-10.0.20.jar
+                                                                 [classpath] /var/lib/neo4j/lib/stax-ex-1.8.1.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-java-driver-5.21.0.jar
+                                                                 [classpath] /var/lib/neo4j/lib/txw2-2.3.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/jetty-webapp-10.0.20.jar
+                                                                 [classpath] /var/lib/neo4j/lib/commons-lang3-3.14.0.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-layout-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/log4j-api-2.20.0.jar
+                                                                 [classpath] /var/lib/neo4j/lib/arrow-memory-netty-buffer-patch-16.0.0.jar
+                                                                 [classpath] /var/lib/neo4j/lib/netty-transport-native-kqueue-4.1.110.Final-osx-x86_64.jar
+                                                                 [classpath] /var/lib/neo4j/lib/zstd-proxy-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/argparse4j-0.9.0.jar
+                                                                 [classpath] /var/lib/neo4j/lib/ipaddress-5.5.0.jar
+                                                                 [classpath] /var/lib/neo4j/lib/log4j-core-2.20.0.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-import-util-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-unsafe-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/netty-codec-4.1.110.Final.jar
+                                                                 [classpath] /var/lib/neo4j/lib/jetty-http-10.0.20.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-kernel-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/commons-configuration2-2.10.1.jar
+                                                                 [classpath] /var/lib/neo4j/lib/protobuf-java-util-3.25.3.jar
+                                                                 [classpath] /var/lib/neo4j/lib/jetty-util-10.0.20.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-rewriting-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/jackson-module-jaxb-annotations-2.17.0.jar
+                                                                 [classpath] /var/lib/neo4j/lib/annotations-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/jetty-server-10.0.20.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-dbms-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/netty-transport-native-unix-common-4.1.110.Final.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-codegen-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/zstd-jni-1.5.6-3.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-io-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-server-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-consistency-check-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-push-to-cloud-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/commons-logging-1.3.1.jar
+                                                                 [classpath] /var/lib/neo4j/lib/cypher-antlr-ast-common-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/netty-resolver-4.1.110.Final.jar
+                                                                 [classpath] /var/lib/neo4j/lib/arrow-memory-netty-16.0.0.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-cypher-planner-spi-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-capabilities-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/animal-sniffer-annotations-1.23.jar
+                                                                 [classpath] /var/lib/neo4j/lib/scala-collection-contrib_2.13-0.3.0.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-lucene-index-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-expressions-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/jersey-client-2.34.jar
+                                                                 [classpath] /var/lib/neo4j/lib/jctools-core-4.0.3.jar
+                                                                 [classpath] /var/lib/neo4j/lib/jetty-security-10.0.20.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-cypher-dsl-2023.9.7.jar
+                                                                 [classpath] /var/lib/neo4j/lib/jersey-hk2-2.34.jar
+                                                                 [classpath] /var/lib/neo4j/lib/cypher-parser-ast-common-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-fabric-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-ssl-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/arrow-vector-16.0.0.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-fulltext-index-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/jPowerShell-3.0.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-cypher-config-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-cypher-macros-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/netty-codec-http-4.1.110.Final.jar
+                                                                 [classpath] /var/lib/neo4j/lib/cypher-antlr-common-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/reactive-streams-1.0.4.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-diagnostics-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-exceptions-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/javassist-3.25.0-GA.jar
+                                                                 [classpath] /var/lib/neo4j/lib/flight-core-16.0.0.jar
+                                                                 [classpath] /var/lib/neo4j/lib/netty-tcnative-2.0.65.Final-linux-x86_64.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-cypher-slotted-runtime-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar
+                                                                 [classpath] /var/lib/neo4j/lib/picocli-4.7.5.jar
+                                                                 [classpath] /var/lib/neo4j/lib/failureaccess-1.0.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/http2-hpack-10.0.20.jar
+                                                                 [classpath] /var/lib/neo4j/lib/cypher-parser-common-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-cypher-expression-evaluator-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-cypher-physical-planning-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-gql-status-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/cypher-ast-factory-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-front-end-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/jersey-common-2.34.jar
+                                                                 [classpath] /var/lib/neo4j/lib/netty-transport-native-epoll-4.1.110.Final-linux-x86_64.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-data-collector-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-spatial-index-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-common-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/http2-server-10.0.20.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-ast-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-schema-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-cypher-interpreted-runtime-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/netty-common-4.1.110.Final.jar
+                                                                 [classpath] /var/lib/neo4j/lib/shiro-crypto-core-2.0.0.jar
+                                                                 [classpath] /var/lib/neo4j/lib/netty-codec-http2-4.1.110.Final.jar
+                                                                 [classpath] /var/lib/neo4j/lib/jna-5.14.0.jar
+                                                                 [classpath] /var/lib/neo4j/lib/reactor-core-3.6.6.jar
+                                                                 [classpath] /var/lib/neo4j/lib/cypher-shell-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-cypher-ir-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-kernel-api-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/lucene-backward-codecs-9.10.0.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-lock-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/protobuf-java-3.25.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/jline-terminal-jansi-3.21.0.jar
+                                                                 [classpath] /var/lib/neo4j/lib/hk2-api-2.6.1.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-procedure-api-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-configuration-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-procedure-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-import-tool-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/shiro-core-2.0.0.jar
+                                                                 [classpath] /var/lib/neo4j/lib/jsr305-3.0.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/jackson-core-2.17.0.jar
+                                                                 [classpath] /var/lib/neo4j/lib/commons-codec-1.17.0.jar
+                                                                 [classpath] /var/lib/neo4j/lib/shiro-lang-2.0.0.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-record-storage-engine-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/jakarta.activation-api-1.2.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/netty-transport-native-kqueue-4.1.110.Final-osx-aarch_64.jar
+                                                                 [classpath] /var/lib/neo4j/lib/server-api-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/grpc-util-1.62.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/jetty-alpn-java-server-10.0.20.jar
+                                                                 [classpath] /var/lib/neo4j/lib/jackson-databind-2.17.0.jar
+                                                                 [classpath] /var/lib/neo4j/lib/jettison-1.5.4.jar
+                                                                 [classpath] /var/lib/neo4j/lib/jackson-jaxrs-base-2.17.0.jar
+                                                                 [classpath] /var/lib/neo4j/lib/jakarta.inject-2.6.1.jar
+                                                                 [classpath] /var/lib/neo4j/lib/netty-tcnative-classes-2.0.65.Final.jar
+                                                                 [classpath] /var/lib/neo4j/lib/slf4j-api-2.0.9.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-id-generator-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/lucene-queryparser-9.10.0.jar
+                                                                 [classpath] /var/lib/neo4j/lib/perfmark-api-0.26.0.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-command-line-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/jline-reader-3.21.0.jar
+                                                                 [classpath] /var/lib/neo4j/lib/FastInfoset-1.2.16.jar
+                                                                 [classpath] /var/lib/neo4j/lib/shiro-crypto-cipher-2.0.0.jar
+                                                                 [classpath] /var/lib/neo4j/lib/netty-tcnative-2.0.65.Final-linux-x86_64-fedora.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-monitoring-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-notifications-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/flatbuffers-java-23.5.26.jar
+                                                                 [classpath] /var/lib/neo4j/lib/netty-transport-4.1.110.Final.jar
+                                                                 [classpath] /var/lib/neo4j/lib/guava-33.2.0-jre.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-util-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-storage-engine-util-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-native-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/scala-reflect-2.13.11.jar
+                                                                 [classpath] /var/lib/neo4j/plugins/apoc.jar
+                                                                 [classpath] /var/lib/neo4j/lib/commons-io-2.16.1.jar
+                                                                 [classpath] /var/lib/neo4j/lib/jakarta.annotation-api-1.3.5.jar
+                                                                 [classpath] /var/lib/neo4j/lib/cypher-v5-parser-listener-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/cypher-v5-antlr-parser-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-bolt-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/grpc-protobuf-1.63.0.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-collections-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/log4j-layout-template-json-2.20.0.jar
+                                                                 [classpath] /var/lib/neo4j/lib/shiro-hashes-bcrypt-2.0.0.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-values-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/jersey-server-2.34.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-token-api-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-cypher-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-index-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/shiro-config-core-2.0.0.jar
+                                                                 [classpath] /var/lib/neo4j/lib/shiro-event-2.0.0.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-concurrent-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/arrow-memory-core-16.0.0.jar
+                                                                 [classpath] /var/lib/neo4j/lib/grpc-netty-1.63.0.jar
+                                                                 [classpath] /var/lib/neo4j/lib/netty-transport-classes-epoll-4.1.110.Final.jar
+                                                                 [classpath] /var/lib/neo4j/lib/cypher-v5-literal-interpreter-5.21.2.jar
+                                                                
+                                                                --------------------------------------------------------------------------------
+                                                                                                [ Library path ]                                
+                                                                --------------------------------------------------------------------------------
+                                                                /usr/java/packages/lib
+                                                                /usr/lib64
+                                                                /lib64
+                                                                /lib
+                                                                /usr/lib
+                                                                
+                                                                --------------------------------------------------------------------------------
+                                                                                             [ System properties ]                              
+                                                                --------------------------------------------------------------------------------
+                                                                jdk.tls.rejectClientInitiatedRenegotiation = true
+                                                                sun.jnu.encoding = ANSI_X3.4-1968
+                                                                sun.arch.data.model = 64
+                                                                user.timezone = Etc/UTC
+                                                                sun.java.launcher = SUN_STANDARD
+                                                                user.country = US
+                                                                sun.boot.library.path = /opt/java/openjdk/lib
+                                                                sun.java.command = org.neo4j.server.CommunityEntryPoint --home-dir=/var/lib/neo4j --config-dir=/var/lib/neo4j/conf --console-mode
+                                                                jdk.debug = release
+                                                                io.netty.tryReflectionSetAccessible = true
+                                                                sun.cpu.endian = little
+                                                                user.home = /var/lib/neo4j
+                                                                user.language = en
+                                                                file.separator = /
+                                                                jdk.tls.ephemeralDHKeySize = 2048
+                                                                sun.management.compiler = HotSpot 64-Bit Tiered Compilers
+                                                                user.name = neo4j
+                                                                jdk.nio.maxCachedBufferSize = 1024
+                                                                path.separator = :
+                                                                file.encoding = UTF-8
+                                                                jnidispatch.path = /tmp/jna15231314324861462470.tmp
+                                                                jna.loaded = true
+                                                                user.dir = /var/lib/neo4j
+                                                                native.encoding = ANSI_X3.4-1968
+                                                                sun.io.unicode.encoding = UnicodeLittle
+                                                                log4j2.disable.jmx = true
+                                                                
+                                                                --------------------------------------------------------------------------------
+                                                                                      [ (IANA) TimeZone database version ]                      
+                                                                --------------------------------------------------------------------------------
+                                                                  TimeZone version: 2024a (available for 603 zone identifiers)
+                                                                
+                                                                --------------------------------------------------------------------------------
+                                                                                            [ Network information ]                             
+                                                                --------------------------------------------------------------------------------
+                                                                Interface eth0:
+                                                                    address: 172.17.0.4
+                                                                Interface lo:
+                                                                    address: 0:0:0:0:0:0:0:1%lo
+                                                                    address: 127.0.0.1
+                                                                
+                                                                --------------------------------------------------------------------------------
+                                                                                         [ Native access information ]                          
+                                                                --------------------------------------------------------------------------------
+                                                                Native access details: Linux native access is available.
+                                                                
+                                                                --------------------------------------------------------------------------------
+                                                                                                [ DBMS config ]                                 
+                                                                --------------------------------------------------------------------------------
+                                                                DBMS provided settings:
+                                                                db.tx_log.rotation.retention_policy=2 days 2G
+                                                                dbms.security.procedures.unrestricted=apoc.*
+                                                                server.bolt.enabled=true
+                                                                server.default_listen_address=0.0.0.0
+                                                                server.directories.import=/var/lib/neo4j/import
+                                                                server.directories.logs=/logs
+                                                                server.directories.neo4j_home=/var/lib/neo4j
+                                                                server.http.enabled=true
+                                                                server.https.enabled=false
+                                                                server.jvm.additional=-XX:+UseG1GC
+-XX:-OmitStackTraceInFastThrow
+-XX:+AlwaysPreTouch
+-XX:+UnlockExperimentalVMOptions
+-XX:+TrustFinalNonStaticFields
+-XX:+DisableExplicitGC
+-Djdk.nio.maxCachedBufferSize=1024
+-Dio.netty.tryReflectionSetAccessible=true
+-Djdk.tls.ephemeralDHKeySize=2048
+-Djdk.tls.rejectClientInitiatedRenegotiation=true
+-XX:FlightRecorderOptions=stackdepth=256
+-XX:+UnlockDiagnosticVMOptions
+-XX:+DebugNonSafepoints
+--add-opens=java.base/java.nio=ALL-UNNAMED
+--add-opens=java.base/java.io=ALL-UNNAMED
+--add-opens=java.base/sun.nio.ch=ALL-UNNAMED
+-Dlog4j2.disable.jmx=true
+                                                                server.memory.pagecache.size=512.00MiB
+                                                                server.windows_service_name=neo4j
+                                                                Directories in use:
+                                                                server.directories.data=/var/lib/neo4j/data
+                                                                server.directories.dumps.root=/var/lib/neo4j/data/dumps
+                                                                server.directories.import=/var/lib/neo4j/import
+                                                                server.directories.lib=/var/lib/neo4j/lib
+                                                                server.directories.licenses=/var/lib/neo4j/licenses
+                                                                server.directories.logs=/logs
+                                                                server.directories.neo4j_home=/var/lib/neo4j
+                                                                server.directories.plugins=/var/lib/neo4j/plugins
+                                                                server.directories.run=/var/lib/neo4j/run
+                                                                server.directories.script.root=/var/lib/neo4j/data/scripts
+                                                                server.directories.transaction.logs.root=/var/lib/neo4j/data/transactions
+                                                                
+                                                                --------------------------------------------------------------------------------
+                                                                                                 [ Packaging ]                                  
+                                                                --------------------------------------------------------------------------------
+                                                                Edition: Community
+                                                                Package Type: docker bullseye
+                                                                
+2024-08-11 11:03:23.872+0000 INFO  [o.n.g.f.m.GlobalModule] Logging config in use: File '/var/lib/neo4j/conf/server-logs.xml'
+2024-08-11 11:03:24.006+0000 WARN  [o.n.k.i.JvmChecker] The max heap memory has not been configured. It is recommended that it is always explicitly configured, to ensure the system has a balanced configuration. Until then, a JVM computed heuristic of 2057306112 bytes is used instead. If you are running neo4j server, you need to configure server.memory.heap.max_size in neo4j.conf. If you are running neo4j embedded, you have to launch the JVM with -Xmx set to a value. You can run neo4j-admin server memory-recommendation for memory configuration suggestions.
+2024-08-11 11:03:24.007+0000 WARN  [o.n.k.i.JvmChecker] The initial heap memory has not been configured. It is recommended that it is always explicitly configured, to ensure the system has a balanced configuration. Until then, a JVM computed heuristic of 130023424 bytes is used instead. If you are running neo4j server, you need to configure server.memory.heap.initial_size in neo4j.conf. If you are running neo4j embedded, you have to launch the JVM with -Xms set to a value. You can run neo4j-admin server memory-recommendation for memory configuration suggestions.
+2024-08-11 11:03:24.152+0000 INFO  [o.n.i.d.DiagnosticsManager] 
+                                                                ********************************************************************************
+                                                                                             [ System diagnostics ]                             
+                                                                ********************************************************************************
+                                                                --------------------------------------------------------------------------------
+                                                                                         [ System memory information ]                          
+                                                                --------------------------------------------------------------------------------
+                                                                Total Physical memory: 7.657GiB
+                                                                Free Physical memory: 5.561GiB
+                                                                Committed virtual memory: 5.495GiB
+                                                                Total swap space: 1024MiB
+                                                                Free swap space: 1024MiB
+                                                                
+                                                                --------------------------------------------------------------------------------
+                                                                                           [ JVM memory information ]                           
+                                                                --------------------------------------------------------------------------------
+                                                                Free  memory: 72.58MiB
+                                                                Total memory: 104.0MiB
+                                                                Max   memory: 1.916GiB
+                                                                Garbage Collector: G1 Young Generation: [G1 Eden Space, G1 Survivor Space, G1 Old Gen]
+                                                                Garbage Collector: G1 Old Generation: [G1 Eden Space, G1 Survivor Space, G1 Old Gen]
+                                                                Memory Pool: CodeHeap 'non-nmethods' (Non-heap memory): committed=2.438MiB, used=1.210MiB, max=5.570MiB, threshold=0B
+                                                                Memory Pool: Metaspace (Non-heap memory): committed=21.75MiB, used=21.45MiB, max=-1B, threshold=0B
+                                                                Memory Pool: CodeHeap 'profiled nmethods' (Non-heap memory): committed=5.625MiB, used=5.610MiB, max=117.2MiB, threshold=0B
+                                                                Memory Pool: Compressed Class Space (Non-heap memory): committed=2.438MiB, used=2.308MiB, max=1.000GiB, threshold=0B
+                                                                Memory Pool: G1 Eden Space (Heap memory): committed=73.00MiB, used=2.000MiB, max=-1B, threshold=?
+                                                                Memory Pool: G1 Old Gen (Heap memory): committed=30.00MiB, used=27.42MiB, max=1.916GiB, threshold=0B
+                                                                Memory Pool: G1 Survivor Space (Heap memory): committed=1.000MiB, used=1.000MiB, max=-1B, threshold=?
+                                                                Memory Pool: CodeHeap 'non-profiled nmethods' (Non-heap memory): committed=2.438MiB, used=1.726MiB, max=117.2MiB, threshold=0B
+                                                                
+                                                                --------------------------------------------------------------------------------
+                                                                                        [ Operating system information ]                        
+                                                                --------------------------------------------------------------------------------
+                                                                Operating System: Linux; version: 6.6.32-linuxkit; arch: aarch64; cpus: 8
+                                                                Max number of file descriptors: 1048576
+                                                                Number of open file descriptors: 243
+                                                                Process id: 7
+                                                                Byte order: LITTLE_ENDIAN
+                                                                Local timezone: Etc/UTC
+                                                                Memory page size: 4096
+                                                                Unaligned memory access allowed: true
+                                                                
+                                                                --------------------------------------------------------------------------------
+                                                                                              [ JVM information ]                               
+                                                                --------------------------------------------------------------------------------
+                                                                VM Name: OpenJDK 64-Bit Server VM
+                                                                VM Vendor: Eclipse Adoptium
+                                                                VM Version: 17.0.11+9
+                                                                JIT compiler: HotSpot 64-Bit Tiered Compilers
+                                                                VM Arguments: [-XX:+UseG1GC, -XX:-OmitStackTraceInFastThrow, -XX:+AlwaysPreTouch, -XX:+UnlockExperimentalVMOptions, -XX:+TrustFinalNonStaticFields, -XX:+DisableExplicitGC, -Djdk.nio.maxCachedBufferSize=1024, -Dio.netty.tryReflectionSetAccessible=true, -Djdk.tls.ephemeralDHKeySize=2048, -Djdk.tls.rejectClientInitiatedRenegotiation=true, -XX:FlightRecorderOptions=stackdepth=256, -XX:+UnlockDiagnosticVMOptions, -XX:+DebugNonSafepoints, --add-opens=java.base/java.nio=ALL-UNNAMED, --add-opens=java.base/java.io=ALL-UNNAMED, --add-opens=java.base/sun.nio.ch=ALL-UNNAMED, -Dlog4j2.disable.jmx=true, -Dfile.encoding=UTF-8]
+                                                                
+                                                                --------------------------------------------------------------------------------
+                                                                                               [ Java classpath ]                               
+                                                                --------------------------------------------------------------------------------
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-slf4j-provider-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-graph-algo-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/jackson-jaxrs-json-provider-2.17.0.jar
+                                                                 [classpath] /var/lib/neo4j/lib/netty-handler-4.1.110.Final.jar
+                                                                 [classpath] /var/lib/neo4j/lib/grpc-context-1.63.0.jar
+                                                                 [classpath] /var/lib/neo4j/lib/jetty-alpn-server-10.0.20.jar
+                                                                 [classpath] /var/lib/neo4j/lib/jaxb-runtime-2.3.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/grpc-api-1.63.0.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-cypher-javacc-parser-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/netty-buffer-4.1.110.Final.jar
+                                                                 [classpath] /var/lib/neo4j/lib/jersey-container-servlet-2.34.jar
+                                                                 [classpath] /var/lib/neo4j/lib/netty-handler-proxy-4.1.110.Final.jar
+                                                                 [classpath] /var/lib/neo4j/lib/caffeine-3.1.8.jar
+                                                                 [classpath] /var/lib/neo4j/lib/magnolia_2.13-1.1.8.jar
+                                                                 [classpath] /var/lib/neo4j/lib/scala-library-2.13.11.jar
+                                                                 [classpath] /var/lib/neo4j/lib/lucene-core-9.10.0.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-browser-5.21.0.jar
+                                                                 [classpath] /var/lib/neo4j/lib/jackson-datatype-jsr310-2.17.0.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-wal-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/lucene-analysis-common-9.10.0.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-cypher-cache-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/jetty-io-10.0.20.jar
+                                                                 [classpath] /var/lib/neo4j/lib/jetty-servlet-10.0.20.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-graphdb-api-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/netty-tcnative-2.0.65.Final-linux-aarch_64.jar
+                                                                 [classpath] /var/lib/neo4j/conf/*
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-query-router-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/WMI4Java-1.6.3.jar
+                                                                 [classpath] /var/lib/neo4j/lib/jakarta.xml.bind-api-2.3.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/jProcesses-1.6.5.jar
+                                                                 [classpath] /var/lib/neo4j/lib/jackson-annotations-2.17.0.jar
+                                                                 [classpath] /var/lib/neo4j/lib/hk2-locator-2.6.1.jar
+                                                                 [classpath] /var/lib/neo4j/lib/grpc-core-1.63.0.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-logging-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/eclipse-collections-api-11.1.0.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-bootcheck-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/cypher-v5-ast-factory-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/jersey-container-servlet-core-2.34.jar
+                                                                 [classpath] /var/lib/neo4j/lib/jansi-2.4.0.jar
+                                                                 [classpath] /var/lib/neo4j/lib/jetty-xml-10.0.20.jar
+                                                                 [classpath] /var/lib/neo4j/lib/netty-transport-native-epoll-4.1.110.Final-linux-aarch_64.jar
+                                                                 [classpath] /var/lib/neo4j/lib/jline-terminal-3.21.0.jar
+                                                                 [classpath] /var/lib/neo4j/lib/grpc-protobuf-lite-1.62.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-cypher-logical-plans-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/netty-tcnative-2.0.65.Final-linux-aarch_64-fedora.jar
+                                                                 [classpath] /var/lib/neo4j/lib/proto-google-common-protos-2.38.0.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-cypher-ast-factory-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-cloud-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/netty-transport-classes-kqueue-4.1.110.Final.jar
+                                                                 [classpath] /var/lib/neo4j/lib/jakarta.ws.rs-api-2.1.6.jar
+                                                                 [classpath] /var/lib/neo4j/lib/kiama_2.13-2.5.1.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-csv-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/arrow-format-16.0.0.jar
+                                                                 [classpath] /var/lib/neo4j/lib/grpc-stub-1.63.0.jar
+                                                                 [classpath] /var/lib/neo4j/lib/commons-compress-1.26.1.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-cypher-rendering-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/istack-commons-runtime-3.0.8.jar
+                                                                 [classpath] /var/lib/neo4j/lib/jetty-servlet-api-4.0.6.jar
+                                                                 [classpath] /var/lib/neo4j/lib/eclipse-collections-11.1.0.jar
+                                                                 [classpath] /var/lib/neo4j/lib/shiro-cache-2.0.0.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-udc-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/commons-text-1.12.0.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-cypher-planner-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/byte-buddy-1.14.14.jar
+                                                                 [classpath] /var/lib/neo4j/lib/netty-codec-socks-4.1.110.Final.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-resource-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/gson-2.10.1.jar
+                                                                 [classpath] /var/lib/neo4j/lib/jakarta.validation-api-2.0.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/shiro-crypto-hash-2.0.0.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-security-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/shiro-hashes-argon2-2.0.0.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-cypher-runtime-util-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/antlr4-runtime-4.13.1.jar
+                                                                 [classpath] /var/lib/neo4j/lib/hk2-utils-2.6.1.jar
+                                                                 [classpath] /var/lib/neo4j/lib/http2-common-10.0.20.jar
+                                                                 [classpath] /var/lib/neo4j/lib/stax-ex-1.8.1.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-java-driver-5.21.0.jar
+                                                                 [classpath] /var/lib/neo4j/lib/txw2-2.3.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/jetty-webapp-10.0.20.jar
+                                                                 [classpath] /var/lib/neo4j/lib/commons-lang3-3.14.0.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-layout-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/log4j-api-2.20.0.jar
+                                                                 [classpath] /var/lib/neo4j/lib/arrow-memory-netty-buffer-patch-16.0.0.jar
+                                                                 [classpath] /var/lib/neo4j/lib/netty-transport-native-kqueue-4.1.110.Final-osx-x86_64.jar
+                                                                 [classpath] /var/lib/neo4j/lib/zstd-proxy-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/argparse4j-0.9.0.jar
+                                                                 [classpath] /var/lib/neo4j/lib/ipaddress-5.5.0.jar
+                                                                 [classpath] /var/lib/neo4j/lib/log4j-core-2.20.0.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-import-util-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-unsafe-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/netty-codec-4.1.110.Final.jar
+                                                                 [classpath] /var/lib/neo4j/lib/jetty-http-10.0.20.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-kernel-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/commons-configuration2-2.10.1.jar
+                                                                 [classpath] /var/lib/neo4j/lib/protobuf-java-util-3.25.3.jar
+                                                                 [classpath] /var/lib/neo4j/lib/jetty-util-10.0.20.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-rewriting-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/jackson-module-jaxb-annotations-2.17.0.jar
+                                                                 [classpath] /var/lib/neo4j/lib/annotations-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/jetty-server-10.0.20.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-dbms-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/netty-transport-native-unix-common-4.1.110.Final.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-codegen-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/zstd-jni-1.5.6-3.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-io-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-server-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-consistency-check-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-push-to-cloud-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/commons-logging-1.3.1.jar
+                                                                 [classpath] /var/lib/neo4j/lib/cypher-antlr-ast-common-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/netty-resolver-4.1.110.Final.jar
+                                                                 [classpath] /var/lib/neo4j/lib/arrow-memory-netty-16.0.0.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-cypher-planner-spi-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-capabilities-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/animal-sniffer-annotations-1.23.jar
+                                                                 [classpath] /var/lib/neo4j/lib/scala-collection-contrib_2.13-0.3.0.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-lucene-index-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-expressions-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/jersey-client-2.34.jar
+                                                                 [classpath] /var/lib/neo4j/lib/jctools-core-4.0.3.jar
+                                                                 [classpath] /var/lib/neo4j/lib/jetty-security-10.0.20.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-cypher-dsl-2023.9.7.jar
+                                                                 [classpath] /var/lib/neo4j/lib/jersey-hk2-2.34.jar
+                                                                 [classpath] /var/lib/neo4j/lib/cypher-parser-ast-common-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-fabric-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-ssl-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/arrow-vector-16.0.0.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-fulltext-index-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/jPowerShell-3.0.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-cypher-config-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-cypher-macros-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/netty-codec-http-4.1.110.Final.jar
+                                                                 [classpath] /var/lib/neo4j/lib/cypher-antlr-common-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/reactive-streams-1.0.4.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-diagnostics-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-exceptions-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/javassist-3.25.0-GA.jar
+                                                                 [classpath] /var/lib/neo4j/lib/flight-core-16.0.0.jar
+                                                                 [classpath] /var/lib/neo4j/lib/netty-tcnative-2.0.65.Final-linux-x86_64.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-cypher-slotted-runtime-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar
+                                                                 [classpath] /var/lib/neo4j/lib/picocli-4.7.5.jar
+                                                                 [classpath] /var/lib/neo4j/lib/failureaccess-1.0.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/http2-hpack-10.0.20.jar
+                                                                 [classpath] /var/lib/neo4j/lib/cypher-parser-common-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-cypher-expression-evaluator-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-cypher-physical-planning-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-gql-status-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/cypher-ast-factory-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-front-end-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/jersey-common-2.34.jar
+                                                                 [classpath] /var/lib/neo4j/lib/netty-transport-native-epoll-4.1.110.Final-linux-x86_64.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-data-collector-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-spatial-index-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-common-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/http2-server-10.0.20.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-ast-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-schema-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-cypher-interpreted-runtime-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/netty-common-4.1.110.Final.jar
+                                                                 [classpath] /var/lib/neo4j/lib/shiro-crypto-core-2.0.0.jar
+                                                                 [classpath] /var/lib/neo4j/lib/netty-codec-http2-4.1.110.Final.jar
+                                                                 [classpath] /var/lib/neo4j/lib/jna-5.14.0.jar
+                                                                 [classpath] /var/lib/neo4j/lib/reactor-core-3.6.6.jar
+                                                                 [classpath] /var/lib/neo4j/lib/cypher-shell-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-cypher-ir-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-kernel-api-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/lucene-backward-codecs-9.10.0.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-lock-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/protobuf-java-3.25.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/jline-terminal-jansi-3.21.0.jar
+                                                                 [classpath] /var/lib/neo4j/lib/hk2-api-2.6.1.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-procedure-api-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-configuration-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-procedure-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-import-tool-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/shiro-core-2.0.0.jar
+                                                                 [classpath] /var/lib/neo4j/lib/jsr305-3.0.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/jackson-core-2.17.0.jar
+                                                                 [classpath] /var/lib/neo4j/lib/commons-codec-1.17.0.jar
+                                                                 [classpath] /var/lib/neo4j/lib/shiro-lang-2.0.0.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-record-storage-engine-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/jakarta.activation-api-1.2.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/netty-transport-native-kqueue-4.1.110.Final-osx-aarch_64.jar
+                                                                 [classpath] /var/lib/neo4j/lib/server-api-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/grpc-util-1.62.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/jetty-alpn-java-server-10.0.20.jar
+                                                                 [classpath] /var/lib/neo4j/lib/jackson-databind-2.17.0.jar
+                                                                 [classpath] /var/lib/neo4j/lib/jettison-1.5.4.jar
+                                                                 [classpath] /var/lib/neo4j/lib/jackson-jaxrs-base-2.17.0.jar
+                                                                 [classpath] /var/lib/neo4j/lib/jakarta.inject-2.6.1.jar
+                                                                 [classpath] /var/lib/neo4j/lib/netty-tcnative-classes-2.0.65.Final.jar
+                                                                 [classpath] /var/lib/neo4j/lib/slf4j-api-2.0.9.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-id-generator-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/lucene-queryparser-9.10.0.jar
+                                                                 [classpath] /var/lib/neo4j/lib/perfmark-api-0.26.0.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-command-line-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/jline-reader-3.21.0.jar
+                                                                 [classpath] /var/lib/neo4j/lib/FastInfoset-1.2.16.jar
+                                                                 [classpath] /var/lib/neo4j/lib/shiro-crypto-cipher-2.0.0.jar
+                                                                 [classpath] /var/lib/neo4j/lib/netty-tcnative-2.0.65.Final-linux-x86_64-fedora.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-monitoring-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-notifications-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/flatbuffers-java-23.5.26.jar
+                                                                 [classpath] /var/lib/neo4j/lib/netty-transport-4.1.110.Final.jar
+                                                                 [classpath] /var/lib/neo4j/lib/guava-33.2.0-jre.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-util-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-storage-engine-util-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-native-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/scala-reflect-2.13.11.jar
+                                                                 [classpath] /var/lib/neo4j/plugins/apoc.jar
+                                                                 [classpath] /var/lib/neo4j/lib/commons-io-2.16.1.jar
+                                                                 [classpath] /var/lib/neo4j/lib/jakarta.annotation-api-1.3.5.jar
+                                                                 [classpath] /var/lib/neo4j/lib/cypher-v5-parser-listener-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/cypher-v5-antlr-parser-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-bolt-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/grpc-protobuf-1.63.0.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-collections-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/log4j-layout-template-json-2.20.0.jar
+                                                                 [classpath] /var/lib/neo4j/lib/shiro-hashes-bcrypt-2.0.0.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-values-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/jersey-server-2.34.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-token-api-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-cypher-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-index-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/shiro-config-core-2.0.0.jar
+                                                                 [classpath] /var/lib/neo4j/lib/shiro-event-2.0.0.jar
+                                                                 [classpath] /var/lib/neo4j/lib/neo4j-concurrent-5.21.2.jar
+                                                                 [classpath] /var/lib/neo4j/lib/arrow-memory-core-16.0.0.jar
+                                                                 [classpath] /var/lib/neo4j/lib/grpc-netty-1.63.0.jar
+                                                                 [classpath] /var/lib/neo4j/lib/netty-transport-classes-epoll-4.1.110.Final.jar
+                                                                 [classpath] /var/lib/neo4j/lib/cypher-v5-literal-interpreter-5.21.2.jar
+                                                                
+                                                                --------------------------------------------------------------------------------
+                                                                                                [ Library path ]                                
+                                                                --------------------------------------------------------------------------------
+                                                                /usr/java/packages/lib
+                                                                /usr/lib64
+                                                                /lib64
+                                                                /lib
+                                                                /usr/lib
+                                                                
+                                                                --------------------------------------------------------------------------------
+                                                                                             [ System properties ]                              
+                                                                --------------------------------------------------------------------------------
+                                                                jdk.tls.rejectClientInitiatedRenegotiation = true
+                                                                sun.jnu.encoding = ANSI_X3.4-1968
+                                                                sun.arch.data.model = 64
+                                                                user.timezone = Etc/UTC
+                                                                sun.java.launcher = SUN_STANDARD
+                                                                user.country = US
+                                                                sun.boot.library.path = /opt/java/openjdk/lib
+                                                                sun.java.command = org.neo4j.server.CommunityEntryPoint --home-dir=/var/lib/neo4j --config-dir=/var/lib/neo4j/conf --console-mode
+                                                                jdk.debug = release
+                                                                io.netty.tryReflectionSetAccessible = true
+                                                                sun.cpu.endian = little
+                                                                user.home = /var/lib/neo4j
+                                                                user.language = en
+                                                                file.separator = /
+                                                                jdk.tls.ephemeralDHKeySize = 2048
+                                                                sun.management.compiler = HotSpot 64-Bit Tiered Compilers
+                                                                user.name = neo4j
+                                                                jdk.nio.maxCachedBufferSize = 1024
+                                                                path.separator = :
+                                                                file.encoding = UTF-8
+                                                                jnidispatch.path = /tmp/jna5175583413855117922.tmp
+                                                                jna.loaded = true
+                                                                user.dir = /var/lib/neo4j
+                                                                native.encoding = ANSI_X3.4-1968
+                                                                sun.io.unicode.encoding = UnicodeLittle
+                                                                log4j2.disable.jmx = true
+                                                                
+                                                                --------------------------------------------------------------------------------
+                                                                                      [ (IANA) TimeZone database version ]                      
+                                                                --------------------------------------------------------------------------------
+                                                                  TimeZone version: 2024a (available for 603 zone identifiers)
+                                                                
+                                                                --------------------------------------------------------------------------------
+                                                                                            [ Network information ]                             
+                                                                --------------------------------------------------------------------------------
+                                                                Interface eth0:
+                                                                    address: 172.17.0.4
+                                                                Interface lo:
+                                                                    address: 0:0:0:0:0:0:0:1%lo
+                                                                    address: 127.0.0.1
+                                                                
+                                                                --------------------------------------------------------------------------------
+                                                                                         [ Native access information ]                          
+                                                                --------------------------------------------------------------------------------
+                                                                Native access details: Linux native access is available.
+                                                                
+                                                                --------------------------------------------------------------------------------
+                                                                                                [ DBMS config ]                                 
+                                                                --------------------------------------------------------------------------------
+                                                                DBMS provided settings:
+                                                                db.tx_log.rotation.retention_policy=2 days 2G
+                                                                dbms.security.procedures.unrestricted=apoc.*
+                                                                server.bolt.enabled=true
+                                                                server.default_listen_address=0.0.0.0
+                                                                server.directories.import=/var/lib/neo4j/import
+                                                                server.directories.logs=/logs
+                                                                server.directories.neo4j_home=/var/lib/neo4j
+                                                                server.http.enabled=true
+                                                                server.https.enabled=false
+                                                                server.jvm.additional=-XX:+UseG1GC
+-XX:-OmitStackTraceInFastThrow
+-XX:+AlwaysPreTouch
+-XX:+UnlockExperimentalVMOptions
+-XX:+TrustFinalNonStaticFields
+-XX:+DisableExplicitGC
+-Djdk.nio.maxCachedBufferSize=1024
+-Dio.netty.tryReflectionSetAccessible=true
+-Djdk.tls.ephemeralDHKeySize=2048
+-Djdk.tls.rejectClientInitiatedRenegotiation=true
+-XX:FlightRecorderOptions=stackdepth=256
+-XX:+UnlockDiagnosticVMOptions
+-XX:+DebugNonSafepoints
+--add-opens=java.base/java.nio=ALL-UNNAMED
+--add-opens=java.base/java.io=ALL-UNNAMED
+--add-opens=java.base/sun.nio.ch=ALL-UNNAMED
+-Dlog4j2.disable.jmx=true
+                                                                server.memory.pagecache.size=512.00MiB
+                                                                server.windows_service_name=neo4j
+                                                                Directories in use:
+                                                                server.directories.data=/var/lib/neo4j/data
+                                                                server.directories.dumps.root=/var/lib/neo4j/data/dumps
+                                                                server.directories.import=/var/lib/neo4j/import
+                                                                server.directories.lib=/var/lib/neo4j/lib
+                                                                server.directories.licenses=/var/lib/neo4j/licenses
+                                                                server.directories.logs=/logs
+                                                                server.directories.neo4j_home=/var/lib/neo4j
+                                                                server.directories.plugins=/var/lib/neo4j/plugins
+                                                                server.directories.run=/var/lib/neo4j/run
+                                                                server.directories.script.root=/var/lib/neo4j/data/scripts
+                                                                server.directories.transaction.logs.root=/var/lib/neo4j/data/transactions
+                                                                
+                                                                --------------------------------------------------------------------------------
+                                                                                                 [ Packaging ]                                  
+                                                                --------------------------------------------------------------------------------
+                                                                Edition: Community
+                                                                Package Type: docker bullseye
+                                                                
